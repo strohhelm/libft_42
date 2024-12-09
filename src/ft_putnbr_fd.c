@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstrohal <pstrohal@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 10:02:39 by pstrohal          #+#    #+#             */
-/*   Updated: 2024/03/05 10:02:44 by pstrohal         ###   ########.fr       */
+/*   Created: 2024/03/12 19:28:18 by pstrohal          #+#    #+#             */
+/*   Updated: 2024/05/08 12:29:35 by pstrohal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
-/* The isdigit() and isnumber() functions return zero if the character tests false and return non-zero
-     if the character tests true. */
+#include "libft.h"
+
+void	ft_putnbr_fd(long n, int fd)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
+	if (n < -2147483648 || n > 2147483647)
+		return ;
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = n * -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		n %= 10 ;
+	}
+	if (n <= 10)
+		n += '0';
+	write(fd, &n, 1);
 }

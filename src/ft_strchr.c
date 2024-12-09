@@ -6,11 +6,11 @@
 /*   By: pstrohal <pstrohal@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:44:43 by pstrohal          #+#    #+#             */
-/*   Updated: 2024/03/21 14:25:41 by pstrohal         ###   ########.fr       */
+/*   Updated: 2024/07/31 10:43:15 by pstrohal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 /*The strchr() function returns a pointer to the 
 first occurrence of the character c in the string s.*/
@@ -22,6 +22,8 @@ char	*ft_strchr(const char *s, int c)
 
 	sp = (char *)s;
 	i = (unsigned char)c;
+	if (!sp)
+		return (NULL);
 	if (*sp == c)
 		return (sp);
 	while (*sp)

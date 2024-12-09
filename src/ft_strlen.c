@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstrohal <pstrohal@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 12:29:59 by pstrohal          #+#    #+#             */
-/*   Updated: 2024/03/21 14:26:25 by pstrohal         ###   ########.fr       */
+/*   Created: 2024/03/05 10:04:41 by pstrohal          #+#    #+#             */
+/*   Updated: 2024/05/17 17:45:21 by pstrohal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-int	ft_toupper(int c)
+size_t	ft_strlen(const char *s)
 {
-	if (c > 96 && c < 123)
-		c -= 32;
-	return (c);
+	int		i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+		i++;
+	return (i);
 }
-/* int main(void)
-{
-	char c = 'G';
-	printf("%c\n", ft_toupper(c));
-	printf("%c", toupper(c));
-} */
+
+//  int	main(void)
+// {
+// 	char a[] = "\n'456y76yu";
+
+// 	printf("%lu\n", ft_strlen(a));
+// 	printf("%lu", strlen(a));
+// 	return(0);
+// } 

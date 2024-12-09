@@ -6,11 +6,11 @@
 /*   By: pstrohal <pstrohal@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:46:33 by pstrohal          #+#    #+#             */
-/*   Updated: 2024/03/21 14:38:05 by pstrohal         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:27:49 by pstrohal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 static char	*jump_spaces(char *str)
 {
@@ -32,11 +32,11 @@ static int	ft_detect_sign(char s)
 		return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	char	sign;
 	char	*sp;
-	int		value;
+	long	value;
 
 	sp = (char *)str;
 	value = 0;
@@ -60,15 +60,15 @@ int	ft_atoi(const char *str)
 	}
 	return (value);
 }
-// #include <limits.h>
-
-// int	main(void)
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(void)
 // {
-// char a[] = "-2147483648";
-// 	int at;
-// 	int atc;
+// 	char a[] = "   		485335588555";
+// 	long at;
+// 	long atc;
 // 	at = ft_atoi(a);
-// 	atc = atoi(a);
-// 	printf("%d\n", at);
-// 	printf("%d\n", atc);
+// 	atc = atol(a);
+// 	printf("%ld\n", at);
+// 	printf("%ld\n", atc);
 // }
